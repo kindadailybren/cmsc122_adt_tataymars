@@ -17,7 +17,7 @@ public class Main {
 
     System.out.println("");
 
-    list.appendNode(2, 1);
+    list.insertNode(2, 1);
     list.printAllNodes();
   }
 }
