@@ -3,26 +3,33 @@ public class Main {
     // LinkedList demonstration
     LinkedList list = new LinkedList();
 
+    System.out.println("=====(Linked) List demonstration=====");
     list.pushNode(1);
     list.pushNode(2);
     list.pushNode(3);
     list.pushNode(4);
 
-    System.out.println(list.countNodes());
+    System.out.println("Nodes Count: " + list.countNodes());
     list.printAllNodes();
-
-    System.out.println("");
 
     list.deleteNode(2);
     list.printAllNodes();
 
-    System.out.println("");
-
-    list.insertNode(2, 1);
+    list.pushNode(56);
     list.printAllNodes();
-    System.out.println();
+
+    list.insertNode(2, 2);
+    list.printAllNodes();
+
+    list.appendNode(69);
+    list.printAllNodes();
+
+    list.printNodeAtIndex(1);
+    list.printNodeAtIndex(5);
 
     // Stack demonstration
+    System.out.println();
+    System.out.println("=====Stack demonstration=====");
     Stack stack = new Stack(3);
     stack.push(1);
     stack.push(2);

@@ -14,10 +14,11 @@ class LinkedList {
     }
   }
 
-  void pushNode(int data) { // Push node to the start of the list as head
+  void pushNode(int data) { // Push node to head
     Node newNode = new Node(data);
     newNode.next = head;
     head = newNode;
+    System.out.println("Pushed a node with data " + data);
   }
 
   void insertNode(int data, int index) { // insert node at specified index
@@ -27,7 +28,7 @@ class LinkedList {
       return;
     }
     if (currNode == null) {
-      return; // index out of bounds, do nothing (or throw an exception)
+      return; // list is empty, do nothing
     }
     for (int i = 0; currNode != null && i < index - 1; i++) {
       currNode = currNode.next;
@@ -36,6 +37,7 @@ class LinkedList {
     Node newNode = new Node(data);
     newNode.next = currNode.next;
     currNode.next = newNode;
+    System.out.println("Inserted " + data + " at index " + index);
   }
 
   void appendNode(int data) { // append node at the tail of the list
@@ -51,6 +53,7 @@ class LinkedList {
     }
 
     currNode.next = newNode;
+    System.out.println("Appended " + data);
   }
 
   void deleteNode(int index) { // Delete node at a specified index
@@ -66,6 +69,7 @@ class LinkedList {
       currNode = currNode.next; // Moves to the next node
     }
     currNode.next = currNode.next.next; // Make the next node be the one after it, essentially deleting it
+    System.out.println("Delete Node at index: " + index);
   }
 
   void printNodeAtIndex(int index) {
@@ -83,6 +87,7 @@ class LinkedList {
 
   void printAllNodes() {
     Node currNode = head;
+    System.out.print("List: ");
     while (currNode != null) { // Traverse the list
       if (currNode.next != null) {
         System.out.print(currNode.data + ", ");
@@ -91,6 +96,8 @@ class LinkedList {
       }
       currNode = currNode.next;
     }
+    System.out.println();
+    System.out.println();
   }
 
   int countNodes() { // Count nodes
@@ -102,5 +109,4 @@ class LinkedList {
     }
     return nodesCount;
   }
-
 }
