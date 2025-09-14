@@ -40,5 +40,22 @@ public class Main {
     stack.pop();
     stack.pop();
     stack.pop();
+
+    // Queue demonstration
+    System.out.println();
+    System.out.println("=====Queue demonstration=====");
+    Queue queue = new Queue(5);
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.enqueue(4);
+    queue.enqueue(5);
+    queue.dequeue();
+    queue.peek();
+    queue.dequeue();
+    queue.peek();
+    queue.dequeue();
+    queue.dequeue();
+    queue.dequeue();
   }
 }
