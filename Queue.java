@@ -1,25 +1,31 @@
 class Queue {
   int[] arrayQueue;
-  int size;
   int count, front, rear;
 
-  public Queue(int size) {
-    this.size = size;
-    arrayQueue = new int[size];
+  public Queue() {
+    arrayQueue = new int[5];
     count = 0;
     front = 0;
     rear = -1;
   }
 
   public void enqueue(int x) {
-    if (isFull()) {
-      System.out.println("Queue is full, cannot enqueue " + x);
-    } else {
-      rear = (rear + 1) % size;
-      arrayQueue[rear] = x;
-      System.out.println(x + " has been enqueued!");
-      count++;
+    if (count == arrayQueue.length) {
+
+      int[] newQueue = new int[arrayQueue.length * 2];
+
+      for (int i = 0; i < arrayQueue.length; i++) {
+        newQueue[i] = arrayQueue[(front + i) % arrayQueue.length];
+      }
+      arrayQueue = newQueue;
+      front = 0;
+      rear = count - 1;
     }
+    rear = (rear + 1) % arrayQueue.length;
+    arrayQueue[rear] = x;
+    count++;
+    System.out.println(x + " has been enqueued!");
+
   }
 
   public void dequeue() {
@@ -27,7 +33,7 @@ class Queue {
       System.out.println("Queue is empty, cannot dequeue!");
     } else {
       int removed = arrayQueue[front];
-      front = (front + 1) % size;
+      front = (front + 1) % arrayQueue.length;
       count--;
       System.out.println(removed + " has been dequeued!");
 
@@ -40,14 +46,6 @@ class Queue {
     } else {
       System.out.println("The front is " + arrayQueue[front]);
 
-    }
-  }
-
-  public boolean isFull() {
-    if (size == count) {
-      return true;
-    } else {
-      return false;
     }
   }
 
