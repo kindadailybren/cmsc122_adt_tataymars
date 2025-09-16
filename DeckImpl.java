@@ -13,7 +13,7 @@ public class DeckImpl {
     int index;
     while (true) {
       System.out.println("======[ DeckImpl ]======\n");
-      System.out.println("Type 0 to exit\n");
+      System.out.println("Enter 0 to exit\n");
       deck.printCards();
       System.out.print("Choose Card: ");
       index = scanner.nextInt();
