@@ -1,6 +1,13 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 class CRDeck {
   CRDeck(String[] Cards) {
-    for (String cardName : Cards) {
+    List<String> cardsList = Arrays.asList(Cards);
+    Collections.shuffle(cardsList);
+
+    for (String cardName : cardsList) {
       Card newCard = new Card(cardName);
       if (headCard == null) {
         headCard = newCard;
