@@ -52,20 +52,13 @@ class CRDeck {
   void printCards() {
     Card currCard = headCard;
     // For Current hand
-    System.out.println("===On Hand===");
-    System.out.print("[");
+    System.out.println("===[ On Hand ]===\n");
     for (int i = 0; i < 4; i++) {
-      if (i != 3) {
-        System.out.print(currCard.cardName + ", ");
-      } else {
-        System.out.print(currCard.cardName);
-      }
+      System.out.println(i + 1 + ": " + currCard.cardName);
       currCard = currCard.nextCard;
     }
-    System.out.println("]");
-    System.out.println();
     // For next in queue
-    System.out.println("===Next Card===");
+    System.out.println("\n===[ Next Card ]===\n");
     System.out.println(currCard.cardName);
     System.out.println();
   }

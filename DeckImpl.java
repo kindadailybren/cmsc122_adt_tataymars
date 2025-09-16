@@ -10,16 +10,20 @@ public class DeckImpl {
     System.out.print("\033[H\033[2J");
     System.out.flush();
 
-    System.out.println("======DeckImpl======");
-    int action, data, index;
+    int index;
     while (true) {
+      System.out.println("======[ DeckImpl ]======\n");
+      System.out.println("Type 0 to exit\n");
       deck.printCards();
-      System.out.print("What Card:");
+      System.out.print("Choose Card: ");
       index = scanner.nextInt();
+      if (index == 0)
+        break;
       System.out.println();
       deck.useCard(index - 1);
       System.out.print("\033[H\033[2J");
       System.out.flush();
     }
+    scanner.close();
   }
 }
