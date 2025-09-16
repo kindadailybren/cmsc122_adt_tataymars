@@ -29,7 +29,7 @@ class CRDeck {
   void printCards() {
     Card currCard = headCard;
     for (; currCard != null;) {
-      System.out.println(currCard.cardName);
+      System.out.print(currCard.cardName);
       currCard = currCard.nextCard;
     }
   }
