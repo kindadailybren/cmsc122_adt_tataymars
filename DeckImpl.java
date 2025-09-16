@@ -10,6 +10,7 @@ public class DeckImpl {
     System.out.println("1: Use");
 
     int action, data, index;
+    deck.printCards();
     while (true) {
       System.out.print("Action Number:");
       action = scanner.nextInt();

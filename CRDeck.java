@@ -36,20 +36,19 @@ class CRDeck {
 
   void useCard(int index) {
     Card currentCard = headCard;
-    Card usedCard;
+    Card usedCard = null;
     for (int i = 0; i < DECK_SIZE; i++) {
-      if (index == 0) {
-        currentCard.nextCard.nextCard.nextCard.nextCard.nextCard.nextCard.nextCard = currentCard;
-        return;
+      if (index == 0 && i == 0) {
+        usedCard = currentCard;
       } else if (i == index - 1) {
         usedCard = currentCard.nextCard;
         currentCard.nextCard = currentCard.nextCard.nextCard;
       }
-      if (i == DECK_SIZE - 2) {
-        currentCard.nextCard = usedCard;
-      }
-      currentCard = currentCard.nextCard;
+      if (i < DECK_SIZE - 1)
+        currentCard = currentCard.nextCard;
     }
+    currentCard.nextCard = usedCard;
+    usedCard.nextCard = null;
   }
 
   void printCards() {
