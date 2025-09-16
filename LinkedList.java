@@ -99,14 +99,4 @@ class LinkedList {
     System.out.println();
     System.out.println();
   }
-
-  int countNodes() { // Count nodes
-    int nodesCount = 0;
-    Node currNode = head;
-    while (currNode != null) {
-      nodesCount++;
-      currNode = currNode.next;
-    }
-    return nodesCount;
-  }
 }

@@ -9,9 +9,6 @@ public class Main {
     list.pushNode(3);
     list.pushNode(4);
 
-    System.out.println("Nodes Count: " + list.countNodes());
-    list.printAllNodes();
-
     list.deleteNode(2);
     list.printAllNodes();
 
@@ -60,5 +57,9 @@ public class Main {
     queue.dequeue();
     queue.dequeue();
     queue.dequeue();
+
+    String[] Cards = { "W", "F", "G", "S", "L", "C", "I", "B" };
+    CRDeck deck = new CRDeck(Cards);
+    deck.printCards();
   }
 }
