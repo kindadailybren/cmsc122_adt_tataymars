@@ -3,6 +3,9 @@ import java.util.Collections;
 import java.util.List;
 
 class CRDeck {
+  int DECK_SIZE = 8;
+  Card headCard; // Declare Head Node
+
   CRDeck(String[] Cards) {
     List<String> cardsList = Arrays.asList(Cards);
     Collections.shuffle(cardsList);
@@ -12,17 +15,11 @@ class CRDeck {
       if (headCard == null) {
         headCard = newCard;
       } else {
-        Card curr = headCard;
-        while (curr.nextCard != null) { // walk to last node
-          curr = curr.nextCard;
-        }
-        curr.nextCard = newCard; // link at the end
+        newCard.nextCard = headCard;
+        headCard = newCard;
       }
     }
   }
-
-  Card headCard; // Declare Head Node
-  int DECK_SIZE = 8;
 
   class Card { // Node Structure with Constructor
     String cardName;
@@ -34,18 +31,19 @@ class CRDeck {
     }
   }
 
-  void useCard(int index) {
+  void useCard(int choice) {
     Card currentCard = headCard;
     Card usedCard = null;
-    for (int i = 0; i < DECK_SIZE; i++) {
-      if (index == 0 && i == 0) {
+    for (int i = 0; i < DECK_SIZE - 1; i++) {
+      if (choice == 0 && i == 0) {
         usedCard = currentCard;
-      } else if (i == index - 1) {
+        headCard = headCard.nextCard;
+      } else if (i == choice - 1) {
         usedCard = currentCard.nextCard;
         currentCard.nextCard = currentCard.nextCard.nextCard;
+        continue;
       }
-      if (i < DECK_SIZE - 1)
-        currentCard = currentCard.nextCard;
+      currentCard = currentCard.nextCard;
     }
     currentCard.nextCard = usedCard;
     usedCard.nextCard = null;
@@ -54,7 +52,7 @@ class CRDeck {
   void printCards() {
     Card currCard = headCard;
     for (; currCard != null;) {
-      System.out.print(currCard.cardName);
+      System.out.print(currCard.cardName + ", ");
       currCard = currCard.nextCard;
     }
   }
