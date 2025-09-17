@@ -21,10 +21,14 @@ public class LinkedListImpl {
       System.out.println("4: Delete");
       System.out.println("5: Print at index");
       System.out.println("6: Print Nodes");
+      System.out.println("0: Exit");
 
       System.out.print("Action Number:");
       action = scanner.nextInt();
       switch (action) {
+        case 0:
+          return;
+
         case 1:
           System.out.print("Push Value:");
           data = scanner.nextInt();

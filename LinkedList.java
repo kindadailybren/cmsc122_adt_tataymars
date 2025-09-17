@@ -23,12 +23,9 @@ class LinkedList {
 
   void insertNode(int data, int index) { // insert node at specified index
     Node currNode = head;
-    if (index == 0) {
+    if (index == 0 || currNode == null) {
       pushNode(data);
       return;
-    }
-    if (currNode == null) {
-      return; // list is empty, do nothing
     }
     for (int i = 0; currNode != null && i < index - 1; i++) {
       currNode = currNode.next;
@@ -59,6 +56,7 @@ class LinkedList {
   void deleteNode(int index) { // Delete node at a specified index
     Node currNode = head;
     if (head == null) { // If the head is empty, just return
+      System.out.println("List is empty, nothing to delete.");
       return;
     }
     if (index == 0) {
