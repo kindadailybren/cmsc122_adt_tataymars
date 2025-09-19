@@ -3,7 +3,7 @@
 # Compilation of code
 ```bash
 cd cmsc122_adt_aquino,catones,medina
-javac -d bin *.java
+javac -d bin */*.java
 ```
 
 # Run code
